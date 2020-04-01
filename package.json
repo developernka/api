@@ -1,0 +1,24 @@
+{
+  "name": "git.api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "list.js",
+  "scripts": {
+    "start": "node list.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developernka/api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/developernka/api/issues"
+  },
+  "homepage": "https://github.com/developernka/api#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  }
+}

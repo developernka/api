@@ -4,17 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API</title>
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        border-collapse: collapse;
+        border: 1px solid gray;
+        padding: 5px;
+        text-align: left;
+      }
+      table {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <ul>
-      <li>
-        <p>io.github.developernka.ca</p>
-        <ul>
-          <li>
-            <a href="io.github.developernka.ca/config.json">config.json</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <table id="list">
+      <thead>
+        <tr>
+          <th>Folder</th>
+          <th>File</th>
+          <th>Updated On</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      fetch('files.json')
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          var listHtm = '';
+          data.forEach(element => {
+            listHtm += `<tr><td><a href="${element.path.split('/')[0] +
+              '/' +
+              element.path.split('/')[1]}">${
+              element.path.split('/')[1]
+            }</a></td><td><a href="${element.path}">${
+              element.name
+            }</a></td><td> ${element.update}</td></tr>`;
+          });
+          document.querySelector('#list>tbody').innerHTML = listHtm;
+        });
+    </script>
   </body>
 </html>
